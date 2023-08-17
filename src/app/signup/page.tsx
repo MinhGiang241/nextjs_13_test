@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation' //not next/router
 import axios from 'axios'
 import Link from 'next/link'
-import { toast } from 'react-hot-toast'
-import useSWR from 'swr'
+import { Toaster, toast } from 'react-hot-toast'
 
 
 
@@ -83,10 +82,12 @@ export default function SignupPage() {
       />
 
       <button
+        disabled={loading}
         className='p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none forcus:border-gray-600'
         onClick={onSignUp}
       >{buttonDisabled ? "No sign up" : "Sign up here"}</button>
       <Link href={'/login'} >Visit Login Page</Link>
+      <Toaster />
     </div>
   )
 }
