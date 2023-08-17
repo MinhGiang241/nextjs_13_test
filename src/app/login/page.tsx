@@ -65,11 +65,12 @@ export default function SignupPage() {
         value={user.password}
         onChange={(e) => setUser({ ...user, password: e.target.value })}
         placeholder='password'
+
       />
 
       <button
         disabled={loading}
-        className='p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none forcus:border-gray-600'
+        className='p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600'
         onClick={onLogin}
       >Login here</button>
       <Link href={'/signup'} >Visit Signup Page</Link>
