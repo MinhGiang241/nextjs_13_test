@@ -16,7 +16,10 @@ export default function SignupPage() {
   const [buttonDisabled, setButtonDisabled] = useState(false)
   const [loading, setLoading] = useState(false)
 
+  console.log("Hello");
   const onLogin = async () => {
+    console.log("Hello");
+
     try {
       setLoading(true)
       const response = await axios.post("/api/users/login", user)
