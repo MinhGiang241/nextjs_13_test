@@ -77,7 +77,6 @@ export default function SignupPage() {
         onClick={onLogin}
       >Login here</button>
       <Link href={'/signup'} >Visit Signup Page</Link>
-      <Toaster />
     </div>
   )
 }

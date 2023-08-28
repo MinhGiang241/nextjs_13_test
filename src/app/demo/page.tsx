@@ -23,17 +23,16 @@ export const metadata: Metadata = {
 export default async function Demo() {
 
   var data = await axios.get("https://jsonplaceholder.typicode.com/posts")
-  console.log(data);
-
 
   return (
     <div >
       {/* {data.data.map((v: any) => v.title)} */}
       <pre>
         <code >
-          {stringify(data, null, 2)}
+
+          {/* {stringify(data, null, 2)} */}
         </code>
-        {stringify(data)}
+
       </pre>
     </div>
   )
