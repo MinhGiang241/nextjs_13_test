@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import { Provider } from 'react-redux'
 import { Providers } from '@/GlobalRedux/provider'
+import StyledComponentsRegistry from '@/lib/AntdRegistry';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,11 +20,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang="en" >
       <body className={inter.className}>
         <Providers >
-          <Toaster />
-          {children}
+          <StyledComponentsRegistry>
+            <Toaster />
+            {children}
+          </StyledComponentsRegistry>
         </Providers>
       </body>
     </html>

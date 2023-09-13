@@ -4,38 +4,59 @@ import React from 'react'
 import type { RootState } from '@/GlobalRedux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { increment, decrement, incrementByAmount, decrementByAmount } from '@/GlobalRedux/features/counter/CounterSlice'
-import { Button } from 'antd'
+import dynamic from 'next/dynamic'
+
+import { TextField } from '@mui/material'
+import { Input } from 'semantic-ui-react'
+
+import { Button } from 'semantic-ui-react'
+
+const Buttons = dynamic(() => import('antd/es/button'))
+// const {Button} = dynamic(()=> import('antd'),{ssr:false} )
 
 export default function ReduxTest() {
   const count = useSelector((state: RootState) => state.counter.value)
   const dispatch = useDispatch();
   return (
-    <>
-      {count}
-      <div >
-        <Button type='primary' className='bg-green-600' onClick={() => dispatch(increment())}>
-          Increment
-        </Button>
-      </div>
-      <div>
+    <div className='grid grid-cols-3'>
+      <div className='col-span-0'>
+        {count}
+        <div >
+          <Buttons type='primary' color='red-1' onClick={() => dispatch(increment())}>
+            Increment
+          </Buttons>
+        </div>
+        <div>
 
-        <Button type="dashed" className='bg-red-300' onClick={() => dispatch(decrement())}>
-          Decrement
-        </Button>
-      </div>
+          <Buttons type="dashed" color='green' onClick={() => dispatch(decrement())}>
+            Decrement
+          </Buttons>
+        </div>
 
-      <div>
-        <Button type='default' className='bg-teal-700 hover:bg-red-500' onClick={() => dispatch(incrementByAmount(10))}>
-          Increment By Amount
-        </Button>
-      </div>
+        <div>
+          <Buttons type='default' onClick={() => dispatch(incrementByAmount(10))}>
+            Increment By Amount
+          </Buttons>
+        </div>
 
-      <div>
-        <Button type='default' className='bg-purple-400 active:bg-yellow-100 hover:bg-blue-800' onClick={() => dispatch(decrementByAmount(10))}>
-          decrement By Amount
-        </Button>
+        <div>
+          <Buttons type='default' onClick={() => dispatch(decrementByAmount(10))}>
+            decrement By Amount
+          </Buttons>
+        </div>
       </div>
-    </>
+      <div className='col-span-1 flex flex-col' >
+        <TextField className='bg-white' id="outlined-basic" label="Outlined" variant="outlined" />
+        <TextField className='bg-white' id="filled-basic" label="Filled" variant="filled" />
+        <TextField className='bg-white' id="standard-basic" label="Standard" variant="standard" />
+        <div className='h-10' />
+      </div>
+      <div className='col-span-2 flex flex-col'>
+        <Input placeholder='Search...' />
+        <Button primary>Primary</Button>
+        <Button secondary>Secondary</Button>
+      </div>
+    </div>
   )
 }
 ReduxTest
