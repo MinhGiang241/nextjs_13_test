@@ -10,11 +10,14 @@
     "test": "jest"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "@types/json-stringify-safe": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "20.4.9",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
+    "@types/react-redux": "^7.1.26",
+    "antd": "^5.9.0",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
@@ -29,6 +32,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",
+    "react-redux": "^8.1.2",
     "swr": "^2.2.1",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"

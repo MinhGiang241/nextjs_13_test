@@ -6,6 +6,7 @@ import axios from 'axios'
 import Link from 'next/link'
 import toast, { Toaster } from 'react-hot-toast'
 
+
 export default function SignupPage() {
   const router = useRouter()
   const [user, setUser] = useState({
@@ -70,7 +71,6 @@ export default function SignupPage() {
         placeholder='password'
 
       />
-
       <button
         disabled={loading}
         className='p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600'
